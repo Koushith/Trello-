@@ -33,7 +33,8 @@ export default function InputContainer() {
   return (
     <div className={classes.root}>
       <Collapse in={open}>
-        <InputCard />
+        {/* collapsing props */}
+        <InputCard setOpen={setOpen} />
       </Collapse>
       <Collapse in={!open}>
         <Paper

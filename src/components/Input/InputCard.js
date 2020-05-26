@@ -24,7 +24,7 @@ const useStyle = makeStyles((theme) => ({
   },
 }));
 
-export default function InputCard() {
+export default function InputCard({ setOpen }) {
   // styles
   const classes = useStyle();
 
@@ -37,12 +37,15 @@ export default function InputCard() {
             fullWidth
             inputProps={{ className: classes.input }}
             placeholder='Enter your next todo'
+            onBlur={() => setOpen(false)}
           />
         </Paper>
       </div>
       <div className={classes.confirm}>
-        <Button className={classes.btnConfirm}>Add Card</Button>
-        <IconButton>
+        <Button className={classes.btnConfirm} onClick={() => setOpen(false)}>
+          Add Card
+        </Button>
+        <IconButton onClick={() => setOpen(false)}>
           <ClearIcon />
         </IconButton>
       </div>
