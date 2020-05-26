@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import { findByLabelText } from '@testing-library/react';
+
 const useStyle = makeStyles((theme) => ({
   editableTitleContainer: {
     margin: theme.spacing(1),
@@ -13,6 +14,8 @@ const useStyle = makeStyles((theme) => ({
   },
   editableTitle: {
     flexGrow: 1,
+    fontSize: '1.2rem',
+    fontWeight: 'bold',
   },
   input: {
     margin: theme.spacing(1),
@@ -37,6 +40,9 @@ const Title = () => {
             inputProps={{ className: classes.input }}
             fullWidth
             onBlur={() => setOpen(!open)}
+            // onblur even- inverse of onfoucus- when user leaves -        />
+
+            autoFocus
           />
         </div>
       ) : (
