@@ -6,7 +6,7 @@ import Title from './Title';
 // Material UI Styles
 const useStyle = makeStyles((theme) => ({
   root: {
-    minWidth: '300px',
+    width: '300px',
     backgroundColor: '#EBECF0',
     marginLeft: theme.spacing(1),
   },

@@ -1,16 +1,51 @@
 // Titles on Todo Card
 
-import React from 'react';
-import { Typography } from '@material-ui/core';
+import React, { useState } from 'react';
+import { Typography, InputBase } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import { findByLabelText } from '@testing-library/react';
+const useStyle = makeStyles((theme) => ({
+  editableTitleContainer: {
+    margin: theme.spacing(1),
+    display: 'flex',
+  },
+  editableTitle: {
+    flexGrow: 1,
+  },
+  input: {
+    margin: theme.spacing(1),
+  },
+}));
 
 const Title = () => {
+  // state to edit card title
+  const [open, setOpen] = useState(false);
+
+  // ref to js styles
+  const classes = useStyle();
   return (
     <div>
-      <Typography>Todo</Typography>
+      {open ? (
+        <div>
+          <InputBase value='Todo' inputProps={{ className: classes.input }} />
+        </div>
+      ) : (
+        <div className={classes.editableTitleContainer}>
+          <Typography
+            onClick={() => setOpen(!open)}
+            className={classes.editableTitle}
+          >
+            Todo
+          </Typography>
+          <MoreHorizIcon />
+        </div>
+      )}
     </div>
   );
 };
 
 export default Title;
 
-//https://www.youtube.com/watch?v=QBKyDX7P7Tk&t=127s
+// by default title is not editable, when user clicks -make it editale
