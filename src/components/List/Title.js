@@ -16,6 +16,9 @@ const useStyle = makeStyles((theme) => ({
   },
   input: {
     margin: theme.spacing(1),
+    '&:focus': {
+      background: '#ddd',
+    },
   },
 }));
 
@@ -29,7 +32,12 @@ const Title = () => {
     <div>
       {open ? (
         <div>
-          <InputBase value='Todo' inputProps={{ className: classes.input }} />
+          <InputBase
+            value='Todo'
+            inputProps={{ className: classes.input }}
+            fullWidth
+            onBlur={() => setOpen(!open)}
+          />
         </div>
       ) : (
         <div className={classes.editableTitleContainer}>

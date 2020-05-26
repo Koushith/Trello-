@@ -2,7 +2,7 @@ import React from 'react';
 import { Paper, Typography, CssBaseline } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Title from './Title';
-
+import Card from '../Card';
 // Material UI Styles
 const useStyle = makeStyles((theme) => ({
   root: {
@@ -21,6 +21,11 @@ function List() {
       <CssBaseline />
       <Paper className={classes.root}>
         <Title />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
       </Paper>
     </div>
   );
