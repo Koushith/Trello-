@@ -1,17 +1,15 @@
-// static data
-
 const cards = [
   {
     id: 'card-1',
-    title: 'learning to code',
+    title: 'Learning how to cook',
   },
   {
     id: 'card-2',
-    title: 'write a blog',
+    title: 'Making sandwich',
   },
   {
     id: 'card-3',
-    title: 'tweet your progress',
+    title: 'Taking the trash out',
   },
 ];
 
@@ -22,8 +20,23 @@ const data = {
       title: 'Todo',
       cards,
     },
-    listIds: ['list-1'],
+    'list-2': {
+      id: 'list-2',
+      title: 'Doing',
+      cards: [],
+    },
+    'list-3': {
+      id: 'list-3',
+      title: 'Done',
+      cards: [],
+    },
+    'list-4': {
+      id: 'list-4',
+      title: 'Rejected',
+      cards: [],
+    },
   },
+  listIds: ['list-1', 'list-2', 'list-3', 'list-4'],
 };
 
 export default data;
