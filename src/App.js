@@ -11,13 +11,16 @@ import TopBar from './components/TopBar';
 const useStyle = makeStyles((theme) => ({
   root: {
     minHeight: '100vh',
-    background: 'green',
-    width: '100%',
+    background: '#ddd',
+    width: 'auto',
     overflowY: 'auto',
-    boxSizing: 'border-box',
   },
   listContainer: {
     display: 'flex',
+  },
+  wrapper: {
+    width: '100%',
+    height: 'auto',
   },
 }));
 
@@ -25,7 +28,6 @@ export default function App() {
   const [data, setData] = useState(store);
   const [open, setOpen] = useState(false);
 
-  const [backgroundUrl, setBackgroundUrl] = useState('');
   const classes = useStyle();
   const addMoreCard = (title, listId) => {
     console.log(title, listId);
@@ -129,34 +131,29 @@ export default function App() {
 
   return (
     <StoreApi.Provider value={{ addMoreCard, addMoreList, updateListTitle }}>
-      <div
-        className={classes.root}
-        style={{
-          backgroundImage: `url(${backgroundUrl})`,
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-        }}
-      >
-        <TopBar setOpen={setOpen} />
+      <div className={classes.wrapper}>
+        <div className={classes.root}>
+          <TopBar setOpen={setOpen} />
 
-        <DragDropContext onDragEnd={onDragEnd}>
-          <Droppable droppableId='app' type='list' direction='horizontal'>
-            {(provided) => (
-              <div
-                className={classes.listContainer}
-                ref={provided.innerRef}
-                {...provided.droppableProps}
-              >
-                {data.listIds.map((listId, index) => {
-                  const list = data.lists[listId];
-                  return <List list={list} key={listId} index={index} />;
-                })}
-                <InputContainer type='list' />
-                {provided.placeholder}
-              </div>
-            )}
-          </Droppable>
-        </DragDropContext>
+          <DragDropContext onDragEnd={onDragEnd}>
+            <Droppable droppableId='app' type='list' direction='horizontal'>
+              {(provided) => (
+                <div
+                  className={classes.listContainer}
+                  ref={provided.innerRef}
+                  {...provided.droppableProps}
+                >
+                  {data.listIds.map((listId, index) => {
+                    const list = data.lists[listId];
+                    return <List list={list} key={listId} index={index} />;
+                  })}
+                  <InputContainer type='list' />
+                  {provided.placeholder}
+                </div>
+              )}
+            </Droppable>
+          </DragDropContext>
+        </div>
       </div>
     </StoreApi.Provider>
   );

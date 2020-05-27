@@ -1,15 +1,15 @@
 const cards = [
   {
     id: 'card-1',
-    title: 'Learning how to cook',
+    title: 'User Research',
   },
   {
     id: 'card-2',
-    title: 'Making sandwich',
+    title: 'Do Wireframing',
   },
   {
     id: 'card-3',
-    title: 'Taking the trash out',
+    title: 'Conevert into React',
   },
 ];
 
@@ -30,13 +30,8 @@ const data = {
       title: 'Done',
       cards: [],
     },
-    'list-4': {
-      id: 'list-4',
-      title: 'Rejected',
-      cards: [],
-    },
   },
-  listIds: ['list-1', 'list-2', 'list-3', 'list-4'],
+  listIds: ['list-1', 'list-2', 'list-3'],
 };
 
 export default data;
