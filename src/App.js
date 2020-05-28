@@ -43,10 +43,12 @@ export default function App() {
       id: newCardId,
       title,
     };
-
+    // refering to exixting data in lists
     const list = data.lists[listId];
+    // along with the existing todo list, add new todo
     list.cards = [...list.cards, newCard];
 
+    // update the state with newly added TODO
     const newState = {
       ...data,
       lists: {
