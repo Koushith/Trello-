@@ -8,6 +8,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import TopBar from './components/TopBar';
 
+// similar to styled components- css in JS-
 const useStyle = makeStyles((theme) => ({
   root: {
     minHeight: '100vh',
@@ -25,13 +26,18 @@ const useStyle = makeStyles((theme) => ({
 }));
 
 export default function App() {
+  // store has few static contents-
   const [data, setData] = useState(store);
+  //  state for collapsing.
   const [open, setOpen] = useState(false);
 
+  // referning to Styles avove
   const classes = useStyle();
+
+  // add new todo
   const addMoreCard = (title, listId) => {
     console.log(title, listId);
-
+    // uuid generates unique ID no
     const newCardId = uuid();
     const newCard = {
       id: newCardId,
